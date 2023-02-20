@@ -1,27 +1,21 @@
-let display = document.getElementById('display');
+let ans1 ="";
+let num ="";
+function add(value){
+    console.log(value);
+    num=num+value;
+    document.getElementById('input').value=num;
 
-let buttons = Array.from(document.getElementsByClassName('button'));
+}
 
-buttons.map( button => {
-    button.addEventListener('click', (e) => {
-        switch(e.target.innerText){
-            case 'C':
-                display.innerText = '';
-                break;
-            case '=':
-                try{
-                    display.innerText = eval(display.innerText);
-                } catch {
-                    display.innerText = "Error"
-                }
-                break;
-            case '←':
-                if (display.innerText){
-                   display.innerText = display.innerText.slice(0, -1);
-                }
-                break;
-            default:
-                display.innerText += e.target.innerText;
-        }
-});
+
+function ans(){
+    ans1=eval(num);
+    document.getElementById('input').value=ans1;
+    ans1="";
+    num="";
+}
+
+function clear(){
+    num="";
+    document.getElementById('input').value="";
 }
